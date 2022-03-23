@@ -1,5 +1,6 @@
 #
 # Copyright (c) 2010 Mandriva
+# Copyright (c) 2022 Siveo, http://siveo.net
 #
 # This file is part of python-systemd-dbus.
 #
