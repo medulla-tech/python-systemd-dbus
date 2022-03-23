@@ -61,14 +61,14 @@ class Unit(object):
 
     def kill(self, who, mode, signal):
         """Kill unit.
-        
+
         @param who: Must be one of main, control or all.
         @param mode: Must be one of control-group, process-group, process.
         @param signal: Must be one of the well know signal number such  as
         SIGTERM(15), SIGINT(2), SIGSTOP(19) or SIGKILL(9).
-        
+
         @raise SystemdError: Raised when who, mode or signal are invalid.
-        
+
         @rtype: systemd_dbus.job.Job
         """
         try:
@@ -79,11 +79,11 @@ class Unit(object):
 
     def reload(self, mode):
         """Reload unit.
-        
+
         @param mode: Must be one of fail, replace or isolate.
-        
+
         @raise SystemdError: Raised when mode is invalid.
-        
+
         @rtype: systemd_dbus.job.Job
         """
         try:
@@ -97,11 +97,11 @@ class Unit(object):
 
     def reload_or_restart(self, mode):
         """Reload or restart unit.
-        
+
         @param mode: Must be one of fail, replace or isolate.
-        
+
         @raise SystemdError: Raised when mode is invalid.
-        
+
         @rtype: systemd_dbus.job.Job
         """
         try:
@@ -113,11 +113,11 @@ class Unit(object):
 
     def reload_or_try_restart(self, mode):
         """Reload or try restart unit.
-        
+
         @param mode: Must be one of fail, replace or isolate.
-        
+
         @raise SystemdError: Raised when mode is invalid.
-        
+
         @rtype: systemd_dbus.job.Job
         """
         try:
@@ -131,15 +131,15 @@ class Unit(object):
         try:
             self.__interface.ResetFailed()
         except dbus.exceptions.DBusException, error:
-            raise SystemdError(error)        
+            raise SystemdError(error)
 
     def restart(self, mode):
         """Restart unit.
-        
+
         @param mode: Must be one of fail, replace or isolate.
-        
+
         @raise SystemdError: Raised when mode is invalid.
-        
+
         @rtype: systemd_dbus.job.Job
         """
         try:
@@ -151,11 +151,11 @@ class Unit(object):
 
     def start(self, mode):
         """Start unit.
-        
+
         @param mode: Must be one of fail or replace.
-        
+
         @raise SystemdError: Raised when mode is invalid.
-        
+
         @rtype: systemd_dbus.job.Job
         """
         try:
@@ -167,11 +167,11 @@ class Unit(object):
 
     def stop(self, mode):
         """Stop unit.
-        
+
         @param mode:  Must be one of fail or replace.
-        
+
         @raise SystemdError: Raised when mode is invalid.
-        
+
         @rtype: systemd_dbus.job.Job
         """
         try:
@@ -183,11 +183,11 @@ class Unit(object):
 
     def try_restart(self,mode):
         """Try restart unit.
-        
+
         @param mode: Must be one of "fail" or "replace.
-        
+
         @raise SystemdError: Raised when mode is invalid.
-        
+
         @rtype: L{systemd_dbus.job.Job}
         """
         try:

@@ -88,11 +88,11 @@ class Manager(object):
 
     def get_job(self, ID):
         """Get job by it ID.
-        
+
         @param ID: Job ID.
-        
+
         @raise SystemdError: Raised when no job is found with the given ID.
-        
+
         @rtype: systemd_dbus.job.Job
         """
         try:
@@ -104,11 +104,11 @@ class Manager(object):
 
     def get_unit(self, name):
         """Get unit by it name.
-        
+
         @param name: Unit name (ie: network.service).
-        
+
         @raise SystemdError: Raised when no unit is found with the given name.
-        
+
         @rtype: systemd_dbus.unit.Unit
         """
         try:
@@ -120,11 +120,11 @@ class Manager(object):
 
     def get_unit_by_pid(self, pid):
         """Get unit by it PID.
-        
+
         @param PID: Unit PID.
-        
+
         @raise SystemdError: Raised when no unit with that PID is found.
-        
+
         @rtype: systemd_dbus.unit.Unit
         """
         try:
@@ -145,18 +145,18 @@ class Manager(object):
             self.__interface.KExec()
         except dbus.exceptions.DBusException, error:
             raise SystemdError(error)
-    
+
     def kill_unit(self, name, who, mode, signal):
         """Kill unit.
-        
+
         @param name: Unit name (ie: network.service).
         @param who: Must be one of main, control or all.
         @param mode: Must be one of control-group, process-group, process.
         @param signal: Must be one of the well know signal number such  as
         SIGTERM(15), SIGINT(2), SIGSTOP(19) or SIGKILL(9).
-        
+
         @raise SystemdError: Raised when no unit is found with the given name.
-        
+
         @rtype: L{systemd_dbus.job.Job}
         """
         try:
@@ -167,10 +167,10 @@ class Manager(object):
 
     def list_jobs(self):
         """List all jobs.
-        
+
         @raise SystemdError, IndexError: Raised when dbus error or index error
         is raised.
-        
+
         @rtype: A tuple of L{systemd_dbus.unit.Job}
         """
         try:
@@ -183,10 +183,10 @@ class Manager(object):
 
     def list_units(self):
         """List all units, inactive units too.
-        
+
         @raise SystemdError: Raised when dbus error or index error
         is raised.
-        
+
         @rtype: A tuple of L{systemd_dbus.unit.Unit}
         """
         try:
@@ -199,11 +199,11 @@ class Manager(object):
 
     def load_unit(self, name):
         """Load unit by it name.
-        
+
         @param name: Unit name (ie: network.service).
-        
+
         @raise SystemdError: Raised when no unit is found with the given name.
-        
+
         @rtype: L{systemd_dbus.unit.Unit}
         """
         try:
@@ -239,12 +239,12 @@ class Manager(object):
 
     def reload_or_restart_unit(self, name, mode):
         """Reload or restart unit.
-        
+
         @param name: Unit name (ie: network.service).
         @param mode: Must be one of fail, replace or isolate.
-        
+
         @raise SystemdError: Raised when no unit is found with the given name.
-        
+
         @rtype: L{systemd_dbus.job.Job}
         """
         try:
@@ -256,12 +256,12 @@ class Manager(object):
 
     def reload_or_try_restart_unit(self, name, mode):
         """Reload or try restart unit.
-        
+
         @param name: Unit name (ie: network.service).
         @param mode: Must be one of fail, replace or isolate.
-        
+
         @raise SystemdError: Raised when no unit is found with the given name.
-        
+
         @rtype: L{systemd_dbus.job.Job}
         """
         try:
@@ -273,13 +273,13 @@ class Manager(object):
 
     def reload_unit(self, name, mode):
         """Reload  unit.
-        
+
         @param name: Unit name (ie: network.service).
         @param mode: Must be one of fail, replace.
-        
+
         @raise SystemdError: Raised when no unit is found with the given name or
         mode is not corret.
-        
+
         @rtype: L{systemd_dbus.job.Job}
         """
         try:
@@ -303,12 +303,12 @@ class Manager(object):
 
     def restart_unit(self, name, mode):
         """Restart unit.
-        
+
         @param name: Unit name (ie: network.service).
         @param mode: Must be one of fail, replace or isolate.
-        
+
         @raise SystemdError: Raised when no unit is found with the given name.
-        
+
         @rtype: L{systemd_dbus.job.Job}
         """
         try:
@@ -326,12 +326,12 @@ class Manager(object):
 
     def start_unit(self, name, mode):
         """Start unit.
-        
+
         @param name: Unit name (ie: network.service).
         @param mode: Must be one of fail or replace.
-        
+
         @raise SystemdError: Raised when no unit is found with the given name.
-        
+
         @rtype: L{systemd_dbus.job.Job}
         """
         try:
@@ -343,13 +343,13 @@ class Manager(object):
 
     def start_unit_replace(self, old_unit, new_unit, mode):
         """Start unit replace.
-        
+
         @param old_unit: Old unit.
         @param new_unit: New unit.
         @param mode: Must be one of fail, replace, isolate, rescue or emergency.
-        
+
         @raise SystemdError: Raised when no unit is found with the given name.
-        
+
         @rtype: L{systemd_dbus.job.Job}
         """
         try:
@@ -361,12 +361,12 @@ class Manager(object):
 
     def stop_unit(self, name, mode):
         """Stop unit.
-        
+
         @param name: Unit name (ie: network.service).
         @param mode:  Must be one of fail or replace.
-        
+
         @raise SystemdError: Raised when no unit is found with the given name.
-        
+
         @rtype: L{systemd_dbus.job.Job}
         """
         try:
@@ -385,13 +385,13 @@ class Manager(object):
 
     def try_restart_unit(self, name, mode):
         """Try restart unit.
-        
+
         @param name: Unit name (ie: network.service).
         @param mode: Must be one of "fail" or "replace.
-        
+
         @raise SystemdError: Raised when no unit is found with the given name or
         mode is invalid.
-        
+
         @rtype: L{systemd_dbus.job.Job}
         """
         try:
