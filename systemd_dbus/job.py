@@ -1,5 +1,6 @@
 #
 # Copyright (c) 2010 Mandriva
+# Copyright (c) 2022 Siveo, http://siveo.net
 #
 # This file is part of python-systemd-dbus.
 #
@@ -61,5 +62,5 @@ class Job(object):
     def cancel(self):
         try:
             self.__interface.Cancel()
-        except dbus.exceptions.DBusException, error:
+        except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
