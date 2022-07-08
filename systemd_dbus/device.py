@@ -54,6 +54,6 @@ class Device(object):
         properties = self.__properties_interface.GetAll(
             self.__interface.dbus_interface)
         attr_property =  Property()
-        for key, value in properties.items():
+        for key, value in list(properties.items()):
             setattr(attr_property, key, value)
         setattr(self, 'properties', attr_property)

@@ -54,12 +54,12 @@ class Snapshot(object):
         properties = self.__properties_interface.GetAll(
             self.__interface.dbus_interface)
         attr_property =  Property()
-        for key, value in properties.items():
+        for key, value in list(properties.items()):
             setattr(attr_property, key, value)
         setattr(self, 'properties', attr_property)
 
     def remove(self):
         try:
             self.__interface.Remove()
-        except dbus.exceptions.DBusException, error:
+        except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
