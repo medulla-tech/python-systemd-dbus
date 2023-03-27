@@ -98,8 +98,7 @@ class Manager(object):
         """
         try:
             job_path = self.__interface.GetJob(ID)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -114,8 +113,7 @@ class Manager(object):
         """
         try:
             unit_path = self.__interface.GetUnit(name)
-            unit = Unit(unit_path)
-            return unit
+            return Unit(unit_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -130,8 +128,7 @@ class Manager(object):
         """
         try:
             unit_path = self.__interface.GetUnitByPID(pid)
-            unit = Unit(unit_path)
-            return unit
+            return Unit(unit_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -175,9 +172,7 @@ class Manager(object):
         @rtype: A tuple of L{systemd_dbus.unit.Job}
         """
         try:
-            jobs = []
-            for job in self.__interface.ListJobs():
-                jobs.append(Job(job[4]))
+            jobs = [Job(job[4]) for job in self.__interface.ListJobs()]
             return tuple(jobs)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
@@ -191,9 +186,7 @@ class Manager(object):
         @rtype: A tuple of L{systemd_dbus.unit.Unit}
         """
         try:
-            units = []
-            for unit in self.__interface.ListUnits():
-                units.append(Unit(unit[6]))
+            units = [Unit(unit[6]) for unit in self.__interface.ListUnits()]
             return tuple(units)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
@@ -209,8 +202,7 @@ class Manager(object):
         """
         try:
             unit_path = self.__interface.LoadUnit(name)
-            unit = Unit(unit_path)
-            return unit
+            return Unit(unit_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -250,8 +242,7 @@ class Manager(object):
         """
         try:
             job_path = self.__interface.ReloadOrRestartUnit(name, mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -267,8 +258,7 @@ class Manager(object):
         """
         try:
             job_path = self.__interface.ReloadOrTryRestartUnit(name, mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -285,8 +275,7 @@ class Manager(object):
         """
         try:
             job_path = self.__interface.ReloadUnit(name, mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -314,8 +303,7 @@ class Manager(object):
         """
         try:
             job_path = self.__interface.RestartUnit(name, mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -337,8 +325,7 @@ class Manager(object):
         """
         try:
             job_path = self.__interface.StartUnit(name, mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -355,8 +342,7 @@ class Manager(object):
         """
         try:
             job_path = self.__interface.StartUnitReplace(old_unit, new_unit, mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -372,8 +358,7 @@ class Manager(object):
         """
         try:
             job_path = self.__interface.StopUnit(name, mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -397,8 +382,7 @@ class Manager(object):
         """
         try:
             job_path = self.__interface.TryRestartUnit(name, mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 

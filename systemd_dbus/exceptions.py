@@ -23,7 +23,7 @@ class SystemdError(Exception):
         self.message = error.get_dbus_message()
 
     def __str__(self):
-        return '%s(%s)' % (self.name, self.message)
+        return f'{self.name}({self.message})'
 
     def __repr__(self):
-        return '%s(%s)' % (self.name, self.message)
+        return f'{self.name}({self.message})'
