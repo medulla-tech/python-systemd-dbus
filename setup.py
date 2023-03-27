@@ -7,8 +7,7 @@ from systemd_dbus import get_version
 # Compile the list of packages available, because distutils doesn't have
 # an easy way to do this.
 packages, data_files = [], []
-root_dir = os.path.dirname(__file__)
-if root_dir:
+if root_dir := os.path.dirname(__file__):
     os.chdir(root_dir)
 
 for dirpath, dirnames, filenames in os.walk('systemd_dbus'):
@@ -22,10 +21,7 @@ for dirpath, dirnames, filenames in os.walk('systemd_dbus'):
         packages.append(pkg)
     elif filenames:
         prefix = dirpath[13:] # Strip "systemd/" or "systemd\"
-        for f in filenames:
-            data_files.append(os.path.join(prefix, f))
-
-
+        data_files.extend(os.path.join(prefix, f) for f in filenames)
 setup(name='python-systemd-dbus',
       version=get_version().replace(' ', '-'),
       description='Systemd interfaces wrapper',

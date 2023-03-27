@@ -89,8 +89,7 @@ class Unit(object):
         """
         try:
             job_path = self.__interface.Reload(mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -107,8 +106,7 @@ class Unit(object):
         """
         try:
             job_path = self.__interface.ReloadOrRestart(mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -123,8 +121,7 @@ class Unit(object):
         """
         try:
             job_path = self.__interface.ReloadOrTryRestart(mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -145,8 +142,7 @@ class Unit(object):
         """
         try:
             job_path = self.__interface.Restart(mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -161,8 +157,7 @@ class Unit(object):
         """
         try:
             job_path = self.__interface.Start(mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -177,8 +172,7 @@ class Unit(object):
         """
         try:
             job_path = self.__interface.Stop(mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
 
@@ -193,7 +187,6 @@ class Unit(object):
         """
         try:
             job_path = self.__interface.TryRestart(mode)
-            job = Job(job_path)
-            return job
+            return Job(job_path)
         except dbus.exceptions.DBusException as error:
             raise SystemdError(error)
